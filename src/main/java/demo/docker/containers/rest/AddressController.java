@@ -15,31 +15,31 @@ import java.util.Optional;
 @RequestMapping("/api/addresses")
 public class AddressController {
 
-    private final AddressRepository addressRepository;
-
-    @Autowired
-    public AddressController(AddressRepository addressRepository) {
-        this.addressRepository = addressRepository;
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Address>> findAllCustomerNames() {
-        return new ResponseEntity<>(this.addressRepository.findAll(), HttpStatus.OK);
-    }
-
-    @PostMapping
-    public ResponseEntity<Address> createAddress(@RequestBody @Valid Address address) {
-        return new ResponseEntity<>(this.addressRepository.save(address), HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/{id1}/equals/{id2}")
-    @ResponseStatus(code = HttpStatus.OK)
-    public boolean isAddressesEqual(@PathVariable Integer id1, @PathVariable Integer id2) {
-        Optional<Address> ad1Optional = this.addressRepository.findById(new Long(id1));
-        Optional<Address> ad2Optional = this.addressRepository.findById(new Long(id2));
-        if (ad1Optional.isPresent() && ad2Optional.isPresent()) return ad1Optional.get().equals(ad2Optional.get());
-        return false;
-    }
+//    private final AddressRepository addressRepository;
+//
+//    @Autowired
+//    public AddressController(AddressRepository addressRepository) {
+//        this.addressRepository = addressRepository;
+//    }
+//
+//    @GetMapping
+//    public ResponseEntity<List<Address>> findAllCustomerNames() {
+//        return new ResponseEntity<>(this.addressRepository.findAll(), HttpStatus.OK);
+//    }
+//
+//    @PostMapping
+//    public ResponseEntity<Address> createAddress(@RequestBody @Valid Address address) {
+//        return new ResponseEntity<>(this.addressRepository.save(address), HttpStatus.OK);
+//    }
+//
+//    @GetMapping(value = "/{id1}/equals/{id2}")
+//    @ResponseStatus(code = HttpStatus.OK)
+//    public boolean isAddressesEqual(@PathVariable Integer id1, @PathVariable Integer id2) {
+//        Optional<Address> ad1Optional = this.addressRepository.findById(new Long(id1));
+//        Optional<Address> ad2Optional = this.addressRepository.findById(new Long(id2));
+//        if (ad1Optional.isPresent() && ad2Optional.isPresent()) return ad1Optional.get().equals(ad2Optional.get());
+//        return false;
+//    }
 
 
 }
