@@ -10,9 +10,9 @@
     </parent>
     <packaging>jar</packaging>
     <groupId>demo.docker</groupId>
-    <artifactId>docker-demo-java</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>docker-demo-java</name>
+    <artifactId>docker-springboot-demo</artifactId>
+    <version>1.0</version>
+    <name>${project.artifactId}</name>
     <description>demo to run application as docker container</description>
 
     <properties>
@@ -65,18 +65,23 @@
             </plugin>
             <plugin>
                 <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.13</version>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.4</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <imageName>ndumiso/${project.artifactId}</imageName>
-                    <dockerDirectory>src/main/Docker</dockerDirectory>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
+                    <repository>ndumisosizwe/${project.artifactId}</repository>
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
                 </configuration>
             </plugin>
         </plugins>
