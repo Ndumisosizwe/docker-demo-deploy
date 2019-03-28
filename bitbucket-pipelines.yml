@@ -12,7 +12,7 @@ pipelines:
           - maven
         script: # Modify the commands below to build your repository.
           - docker pull mysql
-          - docker run -p 3011:3306  --name=mysql-instance -e MYSQL_ROOT_PASSWORD=Psybergate#2017 -e MYSQL_PASSWORD=Psybergate#2017 -e MYSQL_USER=psybergate=psybergate -e MYSQL_DATABASE=docker_springboot_db mysql
+          - docker run -p 3011:3306  --name=mysql-instance -e MYSQL_ROOT_PASSWORD=Psybergate#2017 -e MYSQL_PASSWORD=Psybergate#2017 -e MYSQL_USER=psybergate=psybergate -e MYSQL_DATABASE=docker_springboot_db -d mysql:latest
           - mvn -B clean package dockerfile:build # -B batch mode makes Maven less verbose
         services:
           - docker
