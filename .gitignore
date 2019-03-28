@@ -2,8 +2,8 @@ HELP.md
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
-/config/
-!/config/*.template.*
+/src/main/resources/config/
+!/src/main/resources/config/*.template.properties
 
 ### STS ###
 .apt_generated
