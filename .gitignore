@@ -3,7 +3,7 @@ HELP.md
 !.mvn/wrapper/maven-wrapper.jar
 
 /config/
-!config/*.template.*
+!/config/*.template.*
 
 ### STS ###
 .apt_generated
