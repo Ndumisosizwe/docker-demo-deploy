@@ -12,5 +12,10 @@ public class DockerDemoJavaApplicationTests {
     @Test
     public void contextLoads() {
     }
+    
+    @Test
+    public void testShouldPass() {
+    	
+    }
 
 }

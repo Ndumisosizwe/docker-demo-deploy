@@ -17,7 +17,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String welcome() {
-        return "Welcome to spring boot docker " + " running on port " + environment.getProperty("server.port") + "\n application" +
-                " name " + environment.getProperty("spring.application.name");
+        return "<h1 style='color:red;'>Welcome to spring boot docker " + " running on port " + environment.getProperty("server.port") + "\n application" +
+                " name </h1>" + environment.hashCode();
     }
 }
