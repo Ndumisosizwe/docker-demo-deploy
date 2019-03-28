@@ -2,6 +2,9 @@ HELP.md
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
+/config/
+!config/*.template.*
+
 ### STS ###
 .apt_generated
 .classpath
